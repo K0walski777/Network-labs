@@ -26,4 +26,58 @@
 
 ### Настройка коммутаторов
 
+Для всех трех коммутаторов настройки идентичны:
+
+```sh
+Switch> enable
+Switch# configure terminal
+Switch(config)# vlan 2
+Switch(config-vlan)# name PC-x.1
+Switch(config-vlan)# exit
+Switch(config)# vlan 3
+Switch(config-vlan)# name PC-x.2
+Switch(config-vlan)# exit
+Switch(config)# vlan 4
+Switch(config-vlan)# name PC-x.3
+Switch(config-vlan)# exit
+Switch(config)# interface FastEthernet0/1
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 2
+Switch(config-if)# description PC2.1
+Switch(config-if)# exit
+Switch(config)# interface FastEthernet0/2
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 3
+Switch(config-if)# description PC2.2
+Switch(config-if)# exit
+Switch(config)# interface FastEthernet0/3
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 4
+Switch(config-if)# description PC2.3
+Switch(config-if)# exit
+Switch(config)# interface GigabitEthernet0/1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 2-4
+Switch(config-if)# exit
+Switch(config)# interface GigabitEthernet0/2
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 2-4
+Switch(config-if)# exit
+```
+В описании интерфесов изменяется только номер компьютера, подключенныый к соответствующему порту на коммутаторе.
+При желании можно изменить ```hostname``` каждого коммутатора. Для коммутатора, расположенном на первом этаже, установлено имя ```1-layer```, коммутатор на втором этаже получил имя ```2-layer```, коммутатор на третьем этаже соответственно ```3-layer```.
+
+```sh
+Switch(config)# hostname x-layer
+```
+где ```x``` - номер этажа, на котором установлен коммутатор.
+
+Заключительным этапом настройки коммутаторов является сохранение конфигурации:
+
+```sh
+1-layer# copy running-config startup-config
+```
+
+### Настройка IP-адресации на компьютерах
+
 
