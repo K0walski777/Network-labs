@@ -6,6 +6,7 @@
 
 Схема сети
 
+![Исходная схема сети](https://github.com/K0walski777/Network-labs/blob/4308cdc547249ebb59af4baa98484f8e4a4fb103/Task_1/img/task1_img1.png)
 
 Задача
 1. Реализовать схему в Cisco Packet Tracer.
@@ -16,5 +17,13 @@
 6. При отключении любого линка между коммутаторами связь должна восстанавливаться.
 
 ## Решение
+
+### Схема сети
+
+Реализованная схема сети в Cisco Packet Tracer.
+
+![Реализованная схема сети](https://github.com/K0walski777/Network-labs/blob/4308cdc547249ebb59af4baa98484f8e4a4fb103/Task_1/img/task1_img2.png)
+
+### Настройка коммутаторов
 
 
